@@ -14,7 +14,7 @@ class LikeView(GenericAPIView):
         if 'product_id' not in data or 'status' not in data:
             return Response({"error": "data to'lliq emas"})
 
-        pro = Products.objects.filter(pk=data['product_id']).first()
+        pro = Products.objects.filter(product_id=data['product_id']).first()
         if not pro:
             return Response({'error': "bunaqa product yo'"})
 

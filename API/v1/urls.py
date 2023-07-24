@@ -18,6 +18,6 @@ urlpatterns = [
     path('basket/', BasketView.as_view()),
 
 
-    path('like/', LikeView.as_view()),
-    path('dislike/', DisLikeView.as_view()),
+    path('like/<int:pk>', LikeView.as_view()),
+    path('dislike/<int:pk>', DisLikeView.as_view()),
 ]
