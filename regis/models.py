@@ -21,25 +21,22 @@ class ManagerUser(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    first_name = models.CharField(max_length=128, null=True, blank=True)
-    last_name = models.CharField(max_length=128, null=True, blank=True)
-    username = models.CharField(max_length=128, unique=True)
+    username = models.CharField(max_length=128, null=True, blank=True, unique=True)
     phone = models.CharField(max_length=20)
+    password = models.CharField(max_length=50)
     data_joined = models.DateTimeField(editable=False, auto_now_add=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
 
     USERNAME_FIELD = "username"
     objects = ManagerUser()
-    REQUIRED_FIELDS = ['phone']
+    REQUIRED_FIELDS = ['phone', 'password']
 
     def format(self):
         return {
             "id": self.id,
             "phone": self.phone,
             "username": self.username,
-            "first_name": self.first_name,
-            "last_name": self.first_name,
             "is_staff": self.is_staff,
             "data_joined": self.data_joined,
             "is_active": self.is_active,

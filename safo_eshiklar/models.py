@@ -60,11 +60,10 @@ class Likes(models.Model):
 
     def res(self):
         return {
-            "product_id": self.product.id,
-            "user": self.user.id,
+            "product_id": self.product.product_id,
             "like": self.like,
             "dislike": self.dislike,
-
+            "user": self.user
         }
 
 
