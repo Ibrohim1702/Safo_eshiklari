@@ -14,7 +14,8 @@ class ManagerUser(BaseUserManager):
                           is_superuser=is_superuser,
                           **kwargs)
         user.set_password(password)
-        return user.save()
+        user.save()
+        return user
 
     def create_superuser(self, username, password, **kwargs):
         return self.create_user(username, password, is_superuser=True, is_staff=True, **kwargs)
