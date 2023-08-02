@@ -22,7 +22,7 @@ class ManagerUser(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=128, null=True, blank=True, unique=True)
-    phone = models.CharField(max_length=20)
+    phone = models.CharField(max_length=12)
     password = models.CharField(max_length=50)
     data_joined = models.DateTimeField(editable=False, auto_now_add=True)
     is_staff = models.BooleanField(default=False)
@@ -45,8 +45,5 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username
-
-
-
 
 
