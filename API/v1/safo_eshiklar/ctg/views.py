@@ -55,7 +55,7 @@ class CtgView(GenericAPIView):
         ctg = Category.objects.filter(id=_id).first()
 
         if not ctg:
-            return Response({"Error": "Yoq narsani qanaq qblb delete qmoqchisa" })
+            return Response({"Error": "Yoq narsani qanaq qblb delete qmoqchisa" } )
 
 
         data = requests.data
@@ -64,4 +64,4 @@ class CtgView(GenericAPIView):
         ctg = ser.save()
 
 
-        return Response(format_ctg(ctg))
+        return Response(format_ctg(ctg) )
