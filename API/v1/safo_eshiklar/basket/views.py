@@ -14,7 +14,7 @@ class BasketView(GenericAPIView):
 
         if "product_id" not in data:
             return Response({
-                "Error": "product_id berilmagan"
+                "Error": "Productning ID sini notog`ri kirgazdingiz"
             })
 
         prod = Products.objects.filter(pk=data['product_id']).first()
@@ -34,5 +34,5 @@ class BasketView(GenericAPIView):
 
         else:
             return Response({
-                "Error": "Noto'gri product_id berilgan"
-            })
+                "Error": "Noto'gri product ID berilgan"
+            } )
