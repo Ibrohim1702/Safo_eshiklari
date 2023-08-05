@@ -35,4 +35,4 @@ class BasketView(GenericAPIView):
         else:
             return Response({
                 "Error": "Noto'gri product ID berilgan"
-            } )
+            })

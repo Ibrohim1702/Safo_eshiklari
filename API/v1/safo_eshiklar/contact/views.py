@@ -32,12 +32,12 @@ class CntView(GenericAPIView):
     def delete(self, requests, _id, *args, **kwargs, ):
         cnt = Contact.objects.filter(id=_id).first()
         if not cnt:
-            return Response({"Error": "Bunaqa cnt yogu *****"}, status=400)
+            return Response({"Error": "Bunday Contact mavjud emas"}, status=400)
         else:
             cnt.delete()
 
         ctx = {
-            "natija": "Aytilgan cnt ochirib tashlandi"
+            "natija": "Berilgan Contact O`chirib tashlandi"
         }
         return Response(ctx)
 
@@ -53,7 +53,7 @@ class CntView(GenericAPIView):
         cnt = Contact.objects.filter(id=_id).first()
 
         if not cnt:
-            return Response({"Error": "Yoq narsani qanaq qblb delete qmoqchisa"})
+            return Response({"Error": "Mavjud bolmagan narsani o`chirib bolmaydi"})
 
         data = requests.data
         ser = self.get_serializer(data=data, instance=cnt, partial=True)
