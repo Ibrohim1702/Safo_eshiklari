@@ -19,7 +19,7 @@ class Dislike_LikeView(GenericAPIView):
         pro = Products.objects.filter(product_id=str(data['product_id'])).first()
         print(pro)
         if not pro:
-            return Response({'error': "bunaqa product yo'"})
+            return Response({'error': "Bunday product mavjud emas"})
 
         likes = Likes.objects.get_or_create(product=pro)[0]
 
